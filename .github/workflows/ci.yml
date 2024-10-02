@@ -1,15 +1,11 @@
 name: "Run CI"
 
 on:
-  schedule:  # will run only on the default branch (main)
-    # Nightly build at 3:42 A.M.
-    - cron: "42 3 */1 * *"
   pull_request:
     types: [opened, reopened]
   push:
     branches:
       - "**"
-      - "!main"
       - "!gh-pages"
 
 env:
@@ -17,8 +13,6 @@ env:
   PYTHON_KEYRING_BACKEND: keyring.backends.null.Keyring
 
 jobs:
-  code-checks:
-    uses: ./.github/workflows/checks.yml
   build-wheels:
     uses: ./.github/workflows/wheels.yml
   
