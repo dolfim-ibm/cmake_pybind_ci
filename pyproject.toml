@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cmake-ci"
+version = "0.1.0"
+description = ""
+authors = ["Michele Dolfi <dol@zurich.ibm.com>"]
+readme = "README.md"
+build = "build.py"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.build.dependencies]
+cibuildwheel = "^2.19.2"
+wheel = "^0.43.0"
+delocate = "^0.11.0"
+
+
+[build-system]
+requires = ["poetry-core", "pybind11>=2.13.1"]
+build-backend = "poetry.core.masonry.api"
